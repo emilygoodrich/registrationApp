@@ -1,0 +1,29 @@
+app.use(express.urlencoded({extended: false}))
+app.use(express.json());
+app.use(express.static('js'))
+app.use(express.static('public'))
+
+app.get('/', (request, response) => {
+    const file = path.join(__dirname, 'index.html')
+    response.sendFile(file)
+})
+app.get('/getToken', (request, response) => {
+    const file = path.join(__dirname, 'get-token.html')
+    response.sendFile(file)
+})
+app.get('/cards', (request, response) => {
+    const file = path.join(__dirname, 'public/home.html')
+    response.sendFile(file)
+})
+app.get('/cards/create', (request, response) => {
+    const file = path.join(__dirname, 'public/create.html')
+    response.sendFile(file)
+})
+app.get('/cards/:id', (request, response) => {
+    console.log(request)
+    const file = path.join(__dirname, '/public/fix-it.html')
+    response.sendFile(file)
+})
+app.listen(port, () => {
+    console.log(`listening on port ${port}`)
+})
