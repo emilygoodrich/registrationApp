@@ -1,17 +1,15 @@
-import React, { useEffect, useState } from 'react';
+import React//, 
+//{ useEffect, useState } 
+from 'react';
+
+import Users from './components/users';
 
 function App() {
-  const [message, setMessage] = useState('');
-  useEffect(() => {
-    fetch('/')
-      .then((res) => res.text())
-      .then((data) => setMessage(data))
-      .catch((err) => console.log(err));
-  }, []);
   return (
     <div>
-      <h1>{message}</h1>
+      <h1>hewo??</h1>
+      <div><Users /></div>
     </div>
   );
-}
+};
 export default App;
