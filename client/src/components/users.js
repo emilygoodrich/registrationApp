@@ -3,17 +3,21 @@ import React, {useState, useEffect} from 'react';
 
 function Users() {
     const [users, setUsers] = useState([]);
-
     useEffect(() => {
         fetch("/users/").then(res => {
             if(res.ok) {
+                
                 return res.json()
             };
-        }).then(jsonRes => setUsers(jsonRes.usersList));
+        }).then(jsonRes => {
+            setUsers(jsonRes)
+            
+        });
     });
-    return (
+    console.log(users)
+    return (//just usersList
         <div>
-            {users.map(user => <li>{user}</li>)}
+            {users}
         </div>
     );
 };
